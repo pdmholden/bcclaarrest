@@ -3,10 +3,14 @@ package org.bccla.arrestbook;
 import android.app.ListActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.view.View;
+import android.content.Intent;
 
 public class TableOfContents extends ListActivity
 {
-    /** Called when the activity is first created. */
+    public final static String CH_ID = "org.bccla.arrestbook.CH_ID";
+
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
@@ -24,7 +28,16 @@ public class TableOfContents extends ListActivity
 
         // set the adapter & view (not using XML)
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, chapters);
+            android.R.layout.simple_list_item_1, chapters);
         setListAdapter(adapter);
+    }
+
+    @Override
+    protected void onListItemClick(ListView toc, View chapter,
+        int pos, long id)
+    {
+        Intent intent = new Intent(this, ReadChapter.class);
+        intent.putExtra(CH_ID, id);
+        startActivity(intent);
     }
 }
