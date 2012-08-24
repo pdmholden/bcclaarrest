@@ -6,15 +6,31 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.view.View;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
+import java.io.IOException;
+import android.util.Log;
 
 public class TableOfContents extends ListActivity
 {
+    private final static String TAG = "TableOfContents";
     public final static String CH_ID = "org.bccla.arrestbook.CH_ID";
+    private PocketbookContent mDB;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+        mDB = new PocketbookContent(this);
+        SQLiteDatabase db = mDB.getReadableDatabase();
+
+        try
+        {
+            mDB.setupDB();
+        }
+        catch (IOException ioe)
+        {
+            Log.e(TAG, ioe.getMessage());
+        }
 
         // get the data (from where?)
         String[] chapters = new String[] {
