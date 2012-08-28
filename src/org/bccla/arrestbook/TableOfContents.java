@@ -6,30 +6,63 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.view.View;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import java.io.IOException;
 import android.util.Log;
+import android.content.res.AssetManager;
+import java.io.InputStream;
+import java.io.FileOutputStream;
+import java.io.File;
 
 public class TableOfContents extends ListActivity
 {
-    private final static String TAG = "TableOfContents";
     public final static String CH_ID = "org.bccla.arrestbook.CH_ID";
-    private PocketbookContent mDB;
+    private final String TAG = "TableOfContents";
+    private final String DB_DIR = "/data/data/org.bccla.arrestbook/databases";
+    private final String DB_NAME = "arrest_pocketbook.sqlite";
+
+    private void importAssets() throws IOException
+    {
+        AssetManager am = getAssets();
+        InputStream in = am.open(DB_NAME);
+        FileOutputStream out;
+        byte[] buffer = new byte[1024];
+        int len;
+        File dir, db;
+
+        dir = new File(DB_DIR);
+        dir.mkdirs();
+        db = new File(dir, DB_NAME);
+
+        // FIXME: if not first run return
+
+        out = new FileOutputStream(db);
+        while ((len = in.read(buffer)) > 0)
+        {
+            out.write(buffer, 0, len);
+        }
+
+        out.flush();
+        out.close();
+        in.close();
+        if (!db.exists())
+        {
+            Log.e(TAG, DB_DIR + "/" + DB_NAME + " does not exist");
+        }
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        mDB = new PocketbookContent(this);
-        SQLiteDatabase db = mDB.getReadableDatabase();
 
         try
         {
-            mDB.setupDB();
+            importAssets();
         }
         catch (IOException ioe)
         {
             Log.e(TAG, ioe.getMessage());
+            // FIXME: should probably quit
         }
 
         // get the data (from where?)
