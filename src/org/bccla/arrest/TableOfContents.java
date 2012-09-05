@@ -1,4 +1,4 @@
-package org.bccla.arrestbook;
+package org.bccla.arrest;
 
 import android.app.ListActivity;
 import android.os.Bundle;
