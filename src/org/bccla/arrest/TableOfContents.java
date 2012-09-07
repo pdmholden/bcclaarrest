@@ -17,7 +17,7 @@ public class TableOfContents extends ListActivity
 {
     public final static String CH_ID = "org.bccla.arrestbook.CH_ID";
     private final String TAG = "TableOfContents";
-    private final String DB_DIR = "/data/data/org.bccla.arrestbook/databases";
+    private final String DB_DIR = "/data/data/org.bccla.arrest/databases";
     private final String DB_NAME = "arrest_pocketbook.sqlite";
 
     private void importAssets() throws IOException
