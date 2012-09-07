@@ -22,6 +22,7 @@ class PocketbookContent extends SQLiteOpenHelper
     @Override
     public void onCreate(SQLiteDatabase db)
     {
+        // should have been imported already from assets
     }
 
     @Override

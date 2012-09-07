@@ -12,6 +12,9 @@ import android.content.res.AssetManager;
 import java.io.InputStream;
 import java.io.FileOutputStream;
 import java.io.File;
+import org.bccla.arrest.PocketbookContent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 
 public class TableOfContents extends ListActivity
 {
@@ -65,15 +68,26 @@ public class TableOfContents extends ListActivity
             // FIXME: should probably quit
         }
 
-        // get the data (from where?)
-        String[] chapters = new String[] {
-            "Important Notice and Qualification",
-            "Introduction",
-            "Just Making Conversation",
-            "Police are Detaining You",
-            "Being Detained",
-            "Police are Arresting You",
-            "When You are Arrested" };
+        PocketbookContent content = new PocketbookContent(this);
+        SQLiteDatabase db = content.getReadableDatabase();
+
+        Cursor rows = db.query("book_content",
+            new String[] { "id", "title" },
+            null,
+            null,
+            null,
+            null,
+            "id",
+            null);
+
+        String[] chapters = new String[rows.getCount()];
+        rows.moveToFirst();
+        for (int i = 0; i < rows.getCount(); i++)
+        {
+            // assume title is in column 1
+            chapters[i] = rows.getString(1);
+            rows.moveToNext();
+        }
 
         // set the adapter & view (not using XML)
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
