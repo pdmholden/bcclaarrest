@@ -100,7 +100,7 @@ public class TableOfContents extends ListActivity
         int pos, long id)
     {
         Intent intent = new Intent(this, ReadChapter.class);
-        intent.putExtra(CH_ID, id);
+        intent.putExtra(CH_ID, id + 1); // add 1 as DB row IDs start at 1
         startActivity(intent);
     }
 }
