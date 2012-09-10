@@ -36,6 +36,10 @@ public class ReadChapter extends Activity
         rows.moveToFirst();
         String chapterText = rows.getString(1);
 
+        rows.close();
+        db.close();
+        content.close();
+
         // display the chap in view
         TextView chText = new TextView(this);
         chText.setText(chapterText);
