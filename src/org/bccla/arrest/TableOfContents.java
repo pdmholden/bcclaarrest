@@ -93,9 +93,9 @@ public class TableOfContents extends ListActivity
         db.close();
         content.close();
 
-        // set the adapter & view (not using XML)
+        // set the adapter & insert data into view
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-            android.R.layout.simple_list_item_1, chapters);
+            R.layout.toc_row, chapters);
         setListAdapter(adapter);
     }
 
