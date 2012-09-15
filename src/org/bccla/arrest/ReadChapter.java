@@ -41,9 +41,8 @@ public class ReadChapter extends Activity
         content.close();
 
         // display the chap in view
-        TextView chText = new TextView(this);
+        setContentView(R.layout.read_chapter);
+        TextView chText = (TextView) findViewById(R.id.one_chapter);
         chText.setText(chapterText);
-
-        setContentView(chText);
     }
 }
