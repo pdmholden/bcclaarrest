@@ -1,6 +1,5 @@
 - Sort out DB for different languages with different chapters
-- Use XML layouts for Activities, not code
-- Add colour schemes, etc, to XML layouts
 - Handle right to left for Arabic text (if necessary)
 - Do left/right swipe on ReadChapter
-- Do up/down scrolling on ReadChapter
+- Add headings for chapters
+- Fix background colour on shorter chapter text
