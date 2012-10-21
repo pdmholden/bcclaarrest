@@ -1,12 +1,13 @@
 package org.bccla.arrest;
 
 import android.app.Activity;
-import android.os.Bundle;
-import android.widget.TextView;
 import android.content.Intent;
-import org.bccla.arrest.PocketbookContent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
+import android.widget.TextView;
+
+import org.bccla.arrest.PocketbookContent;
 
 public class ReadChapter extends Activity
 {

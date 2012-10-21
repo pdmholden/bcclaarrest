@@ -1,20 +1,22 @@
 package org.bccla.arrest;
 
 import android.app.ListActivity;
-import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.view.View;
 import android.content.Intent;
-import java.io.IOException;
-import android.util.Log;
 import android.content.res.AssetManager;
-import java.io.InputStream;
-import java.io.FileOutputStream;
-import java.io.File;
-import org.bccla.arrest.PocketbookContent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.IOException;
+
+import org.bccla.arrest.PocketbookContent;
 
 public class TableOfContents extends ListActivity
 {
