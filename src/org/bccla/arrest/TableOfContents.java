@@ -36,8 +36,15 @@ public class TableOfContents extends ListActivity
         dir.mkdirs();
         db = new File(dir, DB_NAME);
 
-        // FIXME: if not first run return
+        // if not first run return
+        if (db.exists())
+        {
+            Log.i(TAG, DB_DIR + "/" + DB_NAME + " exists, do nothing");
+            in.close();
+            return;
+        }
 
+        // copy the DB from assets to standard DB dir created above
         out = new FileOutputStream(db);
         while ((len = in.read(buffer)) > 0)
         {
