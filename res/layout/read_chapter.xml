@@ -11,9 +11,9 @@
         <TextView android:id="@+id/one_chapter"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:background="#ffffff"
+            android:background="#000000"
             android:padding="3px"
             android:textSize="10pt"
-            android:textColor="#0000ff" />
+            android:textColor="#ffffff" />
     </ScrollView>
 </LinearLayout>
