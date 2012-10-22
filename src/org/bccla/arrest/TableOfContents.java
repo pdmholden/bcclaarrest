@@ -74,7 +74,6 @@ public class TableOfContents extends ListActivity
         catch (IOException ioe)
         {
             Log.e(TAG, ioe.getMessage());
-            // FIXME: should probably quit
         }
 
         // PDMH: move database stuff into onResume?
@@ -115,8 +114,6 @@ public class TableOfContents extends ListActivity
     {
         Intent intent = new Intent(this, ReadChapter.class);
         intent.putExtra(CH_ID, id + 1); // add 1 as DB row IDs start at 1
-            // FIXME: won't work for multi-lingual as the rows in table for 
-            // other languages won't start at 1 SimpleCursorAdapter?
         startActivity(intent);
     }
 }

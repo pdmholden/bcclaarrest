@@ -19,7 +19,6 @@ public class ReadChapter extends Activity
         // get chap id from intent
         Intent caller = getIntent();
         long id = caller.getLongExtra(TableOfContents.CH_ID, 77);
-        // FIXME: need to handle case where default is returned
 
         PocketbookContent content = new PocketbookContent(this);
         SQLiteDatabase db = content.getReadableDatabase();
