@@ -4,5 +4,5 @@
     android:layout_height="fill_parent"
     android:background="#000000"
     android:padding="3px"
-    android:textSize="13pt"
+    android:textSize="27dp"
     android:textColor="#ffffff" />
