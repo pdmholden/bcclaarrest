@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Arrest Pocketbook</string>
+    <string name="db_not_loaded">The database was not imported. The application cannot continue."</string>
 </resources>

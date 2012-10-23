@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -74,6 +75,10 @@ public class TableOfContents extends ListActivity
         catch (IOException ioe)
         {
             Log.e(TAG, ioe.getMessage());
+            Toast noDB = Toast.makeText(this, R.string.db_not_loaded,
+                Toast.LENGTH_LONG);
+            noDB.show();
+            finish();
         }
 
         // PDMH: move database stuff into onResume?
