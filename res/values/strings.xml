@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Arrest Pocketbook</string>
-    <string name="db_not_loaded">The database was not imported. The application cannot continue."</string>
+    <string name="db_not_loaded">The database was not imported. The application cannot continue.</string>
+    <string name="db_id_bad">The selected chapter failed to load.</string>
 </resources>

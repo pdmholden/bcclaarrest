@@ -6,11 +6,14 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.bccla.arrest.PocketbookContent;
 
 public class ReadChapter extends Activity
 {
+    private final long DB_ID_NOT_FOUND = 1949;
+
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
@@ -18,7 +21,14 @@ public class ReadChapter extends Activity
 
         // get chap id from intent
         Intent caller = getIntent();
-        long id = caller.getLongExtra(TableOfContents.CH_ID, 77);
+        long id = caller.getLongExtra(TableOfContents.CH_ID, DB_ID_NOT_FOUND);
+        if (DB_ID_NOT_FOUND == id)
+        {
+            Toast burned = Toast.makeText(this, R.string.db_id_bad,
+                Toast.LENGTH_LONG);
+            burned.show();
+            super.onBackPressed();
+        }
 
         PocketbookContent content = new PocketbookContent(this);
         SQLiteDatabase db = content.getReadableDatabase();
