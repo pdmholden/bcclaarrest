@@ -103,22 +103,38 @@ tel 604.501.4080 or 1.800.665.6878
 The Office of the Police Complaint Commissioner (City Police)
 #200 – 1111 Melville St., Vancouver, BC, V6E 3V6
 tel 604.660.2385 or 1.800.663.7867");
-INSERT INTO book_content(title, content) VALUES("Important Phone Numbers", "B.C. Civil Liberties Association..............................(604) 687-2919
-Immigration/Refugee Law Clinic............................(604) 601-6390
-Law Line (Legal Services Society)..........................(604) 601-6100
-Lawyer Referral Line.............................................1-800-663-1919
-Legal Aid in Vancouver.........................................(604) 601-6300
-Mental Health Law Program..................................(604) 525-2615
-Office of the Police Complaints Commissioner....1-800-663-7867
-Ombudsman (B.C. Provincial)..............................1-800-567-3247
-Prisoner Legal Services..........................................(604) 853-8712
-Privacy Commissioner of BC.................................(250) 387-5629
-Privacy Commissioner of Canada.........................1-800-282-1376
-RCMP Police Complaints......................................1-800-665-6878
-Refugee Assistance................................................1-888-622-6337
-Salvation Army Pro Bono Lawyer Program...........(604) 299-3908
-UBC Law Student Legal Advice Program..............(604) 822-5791
-Vancouver Area Network of Drug Users..............(604) 683-8595
-Society to Access Justice (Pro Bono Lawyers).........(604) 482-3195");
-
+INSERT INTO book_content(title, content) VALUES("Important Phone Numbers", "B.C. Civil Liberties Association
+    (604) 687-2919
+Immigration/Refugee Law Clinic
+    (604) 601-6390
+Law Line (Legal Services Society)
+    (604) 601-6100
+Lawyer Referral Line
+    1-800-663-1919
+Legal Aid in Vancouver
+    (604) 601-6300
+Mental Health Law Program
+    (604) 525-2615
+Office of the Police Complaints Commissioner
+    1-800-663-7867
+Ombudsman (B.C. Provincial)
+    1-800-567-3247
+Prisoner Legal Services
+    (604) 853-8712
+Privacy Commissioner of BC
+    (250) 387-5629
+Privacy Commissioner of Canada
+    1-800-282-1376
+RCMP Police Complaints
+    1-800-665-6878
+Refugee Assistance
+    1-888-622-6337
+Salvation Army Pro Bono Lawyer Program
+    (604) 299-3908
+UBC Law Student Legal Advice Program
+    (604) 822-5791
+Vancouver Area Network of Drug Users
+    (604) 683-8595
+Society to Access Justice (Pro Bono Lawyers)
+    (604) 482-3195");
 COMMIT;
