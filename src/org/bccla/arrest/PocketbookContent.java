@@ -56,6 +56,12 @@ class PocketbookContent extends SQLiteOpenHelper
             in.close();
             return;
         }
+        else if (overWrite)
+        {
+            /* This is a kludge for a problem with the Cursor causing
+             * a NullPointerException in ArrayAdapter. See issue #12. */
+            db.delete();
+        }
 
         // copy the DB from assets to standard DB dir created above
         out = new FileOutputStream(db);
