@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import org.bccla.arrest.PocketbookContent;
 
@@ -34,11 +35,14 @@ public class TableOfContents extends ListActivity
         mContent = new PocketbookContent(this);
         mDB = mContent.getReadableDatabase();
 
-        // PDMH: need check for db existence & finish()
-        //    Toast noDB = Toast.makeText(mCtx, R.string.db_not_loaded,
-        //        Toast.LENGTH_LONG);
-        //    noDB.show();
-        //    finish();
+        // in case DB is not there or there were other errors in opening it
+        if (null == mDB || false == mDB.isOpen())
+        {
+            Toast burned = Toast.makeText(this, R.string.db_not_loaded,
+                Toast.LENGTH_LONG);
+            burned.show();
+            finish();
+        }
 
         mRows = mDB.query("book_content",
             new String[] { "id", "title" },

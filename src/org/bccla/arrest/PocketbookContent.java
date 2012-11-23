@@ -36,6 +36,7 @@ class PocketbookContent extends SQLiteOpenHelper
         }
     }
 
+    // called with overWrite == true only if upgrading the DB schema version
     private void importAssets(boolean overWrite) throws IOException
     {
         AssetManager am = mCtx.getAssets();
@@ -49,7 +50,7 @@ class PocketbookContent extends SQLiteOpenHelper
         dir.mkdirs();
         db = new File(dir, DB_NAME);
 
-        // if not first run return
+        // if DB already there, don't copy it again
         if (!overWrite && db.exists())
         {
             Log.i(TAG, DB_DIR + "/" + DB_NAME + " exists, do nothing");
