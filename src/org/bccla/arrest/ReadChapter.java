@@ -14,6 +14,11 @@ public class ReadChapter extends Activity
 {
     private final long DB_ID_NOT_FOUND = 1949;
 
+    private PocketbookContent mContent;
+    private SQLiteDatabase mDB;
+    private Cursor mRows;
+    private long idFromIntent;
+
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
@@ -21,38 +26,50 @@ public class ReadChapter extends Activity
 
         // get chap id from intent
         Intent caller = getIntent();
-        long id = caller.getLongExtra(TableOfContents.CH_ID, DB_ID_NOT_FOUND);
-        if (DB_ID_NOT_FOUND == id)
+        idFromIntent = caller.getLongExtra(TableOfContents.CH_ID,
+            DB_ID_NOT_FOUND);
+        if (DB_ID_NOT_FOUND == idFromIntent)
         {
             Toast burned = Toast.makeText(this, R.string.db_id_bad,
                 Toast.LENGTH_LONG);
             burned.show();
             super.onBackPressed();
         }
+    }
 
-        PocketbookContent content = new PocketbookContent(this);
-        SQLiteDatabase db = content.getReadableDatabase();
+    @Override
+    public void onResume()
+    {
+        super.onResume();
 
-        Cursor rows = db.query("book_content",
+        mContent = new PocketbookContent(this);
+        mDB = mContent.getReadableDatabase();
+
+        mRows = mDB.query("book_content",
             new String[] { "id", "content" },
             "id=?",
-            new String[] { String.valueOf(id) },
+            new String[] { String.valueOf(idFromIntent) },
             null,
             null,
             "id",
             null);
 
         // get chap data
-        rows.moveToFirst();
-        String chapterText = rows.getString(1);
-
-        rows.close();
-        db.close();
-        content.close();
+        mRows.moveToFirst();
+        String chapterText = mRows.getString(1);
 
         // display the chap in view
         setContentView(R.layout.read_chapter);
         TextView chText = (TextView) findViewById(R.id.one_chapter);
         chText.setText(chapterText);
+    }
+
+    @Override
+    public void onPause()
+    {
+        super.onPause();
+        mRows.close();
+        mDB.close();
+        mContent.close();
     }
 }
