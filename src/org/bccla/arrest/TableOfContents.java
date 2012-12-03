@@ -81,7 +81,7 @@ public class TableOfContents extends ListActivity
     protected void onListItemClick(ListView toc, View chapter,
         int pos, long id)
     {
-        Intent intent = new Intent(this, ReadChapter.class);
+        Intent intent = new Intent(this, ReadActivity.class);
         intent.putExtra(CH_ID, id + 1); // add 1 as DB row IDs start at 1
         startActivity(intent);
     }

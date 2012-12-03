@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import org.bccla.arrest.PocketbookContent;
 
-public class ReadChapter extends Activity
+public class ReadActivity extends Activity
 {
     private final long DB_ID_NOT_FOUND = 1949;
 
