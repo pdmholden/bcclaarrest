@@ -20,7 +20,7 @@ public class ReadActivity extends FragmentActivity
 
         // get chap id from intent
         Intent caller = getIntent();
-        long id = caller.getLongExtra(TableOfContents.CH_ID,
+        long id = caller.getLongExtra(ContentsActivity.CH_ID,
             DB_ID_NOT_FOUND);
         if (DB_ID_NOT_FOUND == id)
         {

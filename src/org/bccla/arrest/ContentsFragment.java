@@ -1,47 +1,46 @@
 package org.bccla.arrest;
 
-import android.app.ListActivity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.v4.app.ListFragment;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import org.bccla.arrest.PocketbookContent;
+import org.bccla.arrest.ReadActivity;
 
-public class TableOfContents extends ListActivity
+public class ContentsFragment extends ListFragment
 {
-    public final static String CH_ID = "org.bccla.arrestbook.CH_ID";
-
     private PocketbookContent mContent;
     private SQLiteDatabase mDB;
     private Cursor mRows;
     private ArrayAdapter<String> mAdapter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
+    public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
     }
 
     @Override
-    protected void onResume()
+    public void onResume()
     {
         super.onResume();
 
-        mContent = new PocketbookContent(this);
+        mContent = new PocketbookContent(getActivity());
         mDB = mContent.getReadableDatabase();
 
         // in case DB is not there or there were other errors in opening it
         if (null == mDB || false == mDB.isOpen())
         {
-            Toast burned = Toast.makeText(this, R.string.db_not_loaded,
+            Toast burned = Toast.makeText(getActivity(), R.string.db_not_loaded,
                 Toast.LENGTH_LONG);
             burned.show();
-            finish();
+            getActivity().finish();
         }
 
         mRows = mDB.query("book_content",
@@ -63,13 +62,13 @@ public class TableOfContents extends ListActivity
         }
 
         // set the adapter & insert data into view
-        mAdapter = new ArrayAdapter<String>(this,
+        mAdapter = new ArrayAdapter<String>(getActivity(),
             R.layout.toc_row, chapters);
         setListAdapter(mAdapter);
     }
 
     @Override
-    protected void onPause()
+    public void onPause()
     {
         super.onPause();
         mRows.close();
@@ -78,11 +77,12 @@ public class TableOfContents extends ListActivity
     }
 
     @Override
-    protected void onListItemClick(ListView toc, View chapter,
+    public void onListItemClick(ListView toc, View chapter,
         int pos, long id)
     {
-        Intent intent = new Intent(this, ReadActivity.class);
-        intent.putExtra(CH_ID, id + 1); // add 1 as DB row IDs start at 1
+        Intent intent = new Intent(getActivity(), ReadActivity.class);
+        // add 1 as DB row IDs start at 1
+        intent.putExtra(ContentsActivity.CH_ID, id + 1);
         startActivity(intent);
     }
 }

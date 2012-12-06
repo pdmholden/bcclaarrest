@@ -18,7 +18,7 @@ public class ReadFragment extends Fragment
     public static ReadFragment newInstance(long id)
     {
         Bundle init = new Bundle();
-        init.putLong(TableOfContents.CH_ID, id);
+        init.putLong(ContentsActivity.CH_ID, id);
 
         ReadFragment frag = new ReadFragment();
         frag.setArguments(init);
@@ -40,7 +40,7 @@ public class ReadFragment extends Fragment
         {
             savedInstanceState = getArguments();
         }
-        idFromIntent = savedInstanceState.getLong(TableOfContents.CH_ID);
+        idFromIntent = savedInstanceState.getLong(ContentsActivity.CH_ID);
     }
 
     @Override
@@ -56,7 +56,7 @@ public class ReadFragment extends Fragment
     {
         // save chap id
         super.onSaveInstanceState(savedInstanceState);
-        savedInstanceState.putLong(TableOfContents.CH_ID, idFromIntent);
+        savedInstanceState.putLong(ContentsActivity.CH_ID, idFromIntent);
     }
 
     @Override
