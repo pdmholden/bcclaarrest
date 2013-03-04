@@ -64,6 +64,14 @@ public class ReadFragment extends Fragment
     {
         super.onResume();
 
+        if (ContentsActivity.DB_ID_NOT_FOUND == idFromIntent)
+        {
+            Toast burned = Toast.makeText(getActivity(), R.string.db_id_bad,
+                Toast.LENGTH_LONG);
+            burned.show();
+            getActivity().finish();
+        }
+
         mContent = new PocketbookContent(getActivity());
         mDB = mContent.getReadableDatabase();
 

@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentTransaction;
 public class ContentsActivity extends FragmentActivity
 {
     public final static String CH_ID = "org.bccla.arrestbook.CH_ID";
+    public final static long DB_ID_NOT_FOUND = 1949;
     private final String FRAG_TAG =
         ContentsActivity.class.getCanonicalName() + ".fragment";
 

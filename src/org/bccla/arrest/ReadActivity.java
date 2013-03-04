@@ -5,11 +5,9 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.widget.Toast;
 
 public class ReadActivity extends FragmentActivity
 {
-    private final long DB_ID_NOT_FOUND = 1949;
     private final String FRAG_TAG =
         ReadActivity.class.getCanonicalName() + ".fragment";
 
@@ -21,14 +19,7 @@ public class ReadActivity extends FragmentActivity
         // get chap id from intent
         Intent caller = getIntent();
         long id = caller.getLongExtra(ContentsActivity.CH_ID,
-            DB_ID_NOT_FOUND);
-        if (DB_ID_NOT_FOUND == id)
-        {
-            Toast burned = Toast.makeText(this, R.string.db_id_bad,
-                Toast.LENGTH_LONG);
-            burned.show();
-            super.onBackPressed();
-        }
+            ContentsActivity.DB_ID_NOT_FOUND); // handle error later
 
         setContentView(R.layout.chapter_main);
 
