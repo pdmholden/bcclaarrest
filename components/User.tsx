@@ -13,7 +13,7 @@ export default class User extends React.Component<Props> {
   render() {
     return (
       <View style = {styles.item}>
-        <TouchableHighlight onPress={() => this.props.navigation.navigate('Sections')}>
+        <TouchableHighlight onPress={() => this.props.navigation.navigate('Sections', { title: this.props.name })}>
           <Card
             image={{uri: this.props.image}}
           >
