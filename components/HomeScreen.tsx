@@ -2,7 +2,7 @@ import * as React from 'react';
 import { StyleSheet, View, FlatList } from 'react-native';
 import User from './User';
 
-export default class HomeScreen extends React.Component<{}> {
+export default class HomeScreen extends React.Component<any> {
   render() {
     return (
       <View style={styles.container}>
@@ -14,7 +14,7 @@ export default class HomeScreen extends React.Component<{}> {
             {key: "I am driving a car"},
           ]}
           renderItem={
-            ({item}) => <User name={item.key}></User>
+            ({item}) => <User name={item.key} navigation={this.props.navigation}></User>
           }
         />
       </View>
