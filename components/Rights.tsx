@@ -33,14 +33,16 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         fontWeight: 'bold',
         fontSize: 30,
-        padding: 8,
-        paddingBottom: 4
+        padding: 16,
+        paddingBottom: 4,
+        lineHeight: 30,
     },
     body: {
         color: '#333333',
         backgroundColor: 'white',
         fontSize: 16,
-        padding: 8,
+        padding: 16,
         paddingTop: 4,
+        lineHeight: 30,
     },
 });
