@@ -13,19 +13,28 @@ export default class SectionList extends React.Component<any> {
         };
     };
 
+    constructor(props){
+        super(props)
+
+        //TODO: use this.props.navigation.getParam('user') to query for the sections pertaining to the user
+
+        this.state = {
+            sections: [
+                {id: 1, key: "Breach of the Peace"},
+                {id: 2, key: "Ceasing Property"},
+                {id: 3, key: "Identifying yourself to Police"},
+                {id: 4, key: "Being detained"},
+            ]
+        }
+    }
 
     render() {
     return (
         <View style={styles.container}>
             <FlatList
-                data={[
-                    {key: "Breach of the Peace"},
-                    {key: "Ceasing Property"},
-                    {key: "Identifying yourself to Police"},
-                    {key: "Being detained"},
-                ]}
+                data={this.state.sections}
                 renderItem={
-                    ({item}) => <Section name={item.key} navigation={this.props.navigation}></Section>
+                    ({item}) => <Section sectionId={item.id} name={item.key} navigation={this.props.navigation}></Section>
                 }
             />
         </View>
@@ -38,7 +47,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     justifyContent: 'center',
-    paddingTop: 50,
   },
   item: {
     padding: 10,

@@ -7,13 +7,17 @@ export interface Props {
   name: string;
   navigation: any;
   image: string;
+  user: string;
 }
 
 export default class User extends React.Component<Props> {
   render() {
     return (
       <View style = {styles.item}>
-        <TouchableHighlight onPress={() => this.props.navigation.navigate('Sections', { title: this.props.name })}>
+        <TouchableHighlight onPress={() => this.props.navigation.navigate('Sections', {
+          title: this.props.name,
+          user: this.props.user
+        })}>
           <Card
             image={{uri: this.props.image}}
           >
