@@ -6,10 +6,17 @@ export interface Props {
     navigation: any;
 }
 
-export default class Rights extends React.Component<Props> {
+export default class Rights extends React.Component<any> {
     render() {
         return (
-            <Text>{this.props.name}</Text>
+          <View>
+            <Text>
+              {this.props.navigation.getParam('title', 'default title')}
+              </Text>
+              <Text>
+                {this.props.navigation.getParam('content', 'default content')}
+                </Text>
+          </View>
         );
     }
 }

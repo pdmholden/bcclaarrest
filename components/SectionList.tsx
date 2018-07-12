@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { StyleSheet, FlatList, View, Alert, Button } from 'react-native';
-import Rights from './Rights';
+import Section from './Section';
 
 export interface Props {
   name: string;
 }
 
-export default class SectionList extends React.Component<Props> {
+export default class SectionList extends React.Component<any> {
   render() {
     return (
         <View style={styles.container}>
@@ -18,7 +18,7 @@ export default class SectionList extends React.Component<Props> {
                     {key: "Being detained"},
                 ]}
                 renderItem={
-                    ({item}) => <Rights name={item.key} ></Rights>
+                    ({item}) => <Section name={item.key} navigation={this.props.navigation}></Section>
                 }
             />
         </View>
@@ -27,6 +27,16 @@ export default class SectionList extends React.Component<Props> {
 }
 
 const styles = StyleSheet.create({
-  item: {
-  },
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        justifyContent: 'center',
+        paddingTop: 50,
+    },
+    item: {
+        padding: 10,
+        fontSize: 18,
+        height: 44,
+    },
 });
+
