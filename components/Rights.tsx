@@ -7,6 +7,9 @@ export interface Props {
 }
 
 export default class Rights extends React.Component<any> {
+  static navigationOptions = {
+    title: 'Rights',
+  };
     render() {
         return (
           <ScrollView>

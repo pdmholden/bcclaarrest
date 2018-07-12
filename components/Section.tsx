@@ -7,10 +7,6 @@ export interface Props {
 }
 
 export default class Section extends React.Component<Props> {
-  static navigationOptions = {
-    title: 'Rights',
-  };
-
     render() {
         return (
             <Button
