@@ -8,7 +8,8 @@ export default class HomeScreen extends React.Component<any> {
     return (
       <View style={styles.container}>
       <Header
-        centerComponent={{ text: 'Please state the nature of your legal emergency' }}
+        centerComponent={{ text: 'Please state the nature of your legal emergency', style: styles.header }}
+        outerContainerStyles={{ backgroundColor: '#A40618' }}
 
       />
         <FlatList
@@ -40,7 +41,9 @@ const styles = StyleSheet.create({
     height: 44,
   },
   header: {
+    textAlign: 'center',
     fontWeight: 'bold',
-    fontSize: 20,
+    fontSize: 13,
+    color: '#FFF'
   },
 });
