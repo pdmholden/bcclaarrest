@@ -7,6 +7,10 @@ export interface Props {
 }
 
 export default class SectionList extends React.Component<any> {
+  static navigationOptions = {
+    title: 'Sections',
+  };
+
   render() {
     return (
         <View style={styles.container}>

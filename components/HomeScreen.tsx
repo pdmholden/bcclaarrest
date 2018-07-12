@@ -3,6 +3,10 @@ import { StyleSheet, View, FlatList } from 'react-native';
 import User from './User';
 
 export default class HomeScreen extends React.Component<any> {
+  static navigationOptions = {
+    title: 'Home',
+  };
+
   render() {
     return (
       <View style={styles.container}>
