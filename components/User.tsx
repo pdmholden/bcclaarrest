@@ -11,7 +11,7 @@ export default class User extends React.Component<Props> {
     return (
       <View style={styles.item}>
         <Button
-          onPress={() => this.props.navigation.navigate('Sections')}
+          onPress={() => this.props.navigation.navigate('Sections', { title: this.props.name,})}
           title={this.props.name}
         />
       </View>

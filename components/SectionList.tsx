@@ -7,11 +7,14 @@ export interface Props {
 }
 
 export default class SectionList extends React.Component<any> {
-  static navigationOptions = {
-    title: 'Sections',
-  };
+    static navigationOptions = ({ navigation }) => {
+        return {
+            title: navigation.getParam('title', 'default title'),
+        };
+    };
 
-  render() {
+
+    render() {
     return (
         <View style={styles.container}>
             <FlatList
