@@ -34,16 +34,22 @@ export default class SectionList extends React.Component<any> {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        justifyContent: 'center',
-        paddingTop: 50,
-    },
-    item: {
-        padding: 10,
-        fontSize: 18,
-        height: 44,
-    },
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    justifyContent: 'center',
+    paddingTop: 50,
+  },
+  item: {
+    padding: 10,
+    fontSize: 18,
+    height: 44,
+  },
+  header: {
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 13,
+    color: '#FFF'
+  },
 });
 
