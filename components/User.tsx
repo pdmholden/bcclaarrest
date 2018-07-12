@@ -1,8 +1,10 @@
 import * as React from 'react';
+import { createStackNavigator } from 'react-navigation';
 import { StyleSheet, Button, View, Alert } from 'react-native';
 
 export interface Props {
   name: string;
+  navigation: any;
 }
 
 export default class User extends React.Component<Props> {
@@ -14,7 +16,7 @@ export default class User extends React.Component<Props> {
     return (
       <View style={styles.item}>
         <Button
-          onPress={this._onPress}
+          onPress={() => this.props.navigation.navigate('DoesNotExist')}
           title={this.props.name}
         />
       </View>

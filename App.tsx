@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { createStackNavigator } from 'react-navigation';
+import SectionList from './components/SectionList';
 import HomeScreen from './components/HomeScreen';
 
 export default class App extends React.Component<{}> {
@@ -8,8 +9,12 @@ export default class App extends React.Component<{}> {
   }
 }
 
-const RootStack = createStackNavigator({
-  Home: {
-    screen: HomeScreen,
+const RootStack = createStackNavigator(
+  {
+    Home: HomeScreen,
+    Sections: SectionList,
   },
-});
+  {
+    initialRouteName: 'Home',
+  },
+);
