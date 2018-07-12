@@ -19,7 +19,7 @@ export default class HomeScreen extends React.Component<any> {
         <FlatList
           data={[
             {key: "I am a bystander", image: 'https://i.imgur.com/sMLTCxM.png'},
-            {key: "I am going to a protest, what do I need to know?", image: 'https://i.imgur.com/iioNpxc.jpg'},
+            {key: "I am going to a protest", image: 'https://i.imgur.com/iioNpxc.jpg'},
             {key: "I am a member of a marginalized group", image: 'https://i.imgur.com/ZcUoZiw.png'},
             {key: "I am driving a car", image: 'https://i.imgur.com/aSR3lrH.png'},
           ]}
