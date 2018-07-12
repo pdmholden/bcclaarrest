@@ -13,10 +13,10 @@ export default class Rights extends React.Component<any> {
     render() {
         return (
           <ScrollView>
-            <Text>
+            <Text style={styles.title}>
               {this.props.navigation.getParam('title', 'default title')}
               </Text>
-              <Text>
+              <Text style={styles.body}>
                 {this.props.navigation.getParam('content', 'default content')}
                 </Text>
           </ScrollView>
@@ -25,6 +25,19 @@ export default class Rights extends React.Component<any> {
 }
 
 const styles = StyleSheet.create({
-    item: {
+    title: {
+        color: '#333333',
+        backgroundColor: 'white',
+        fontWeight: 'bold',
+        fontSize: 30,
+        padding: 8,
+        paddingBottom: 4
+    },
+    body: {
+        color: '#333333',
+        backgroundColor: 'white',
+        fontSize: 16,
+        padding: 8,
+        paddingTop: 4,
     },
 });
