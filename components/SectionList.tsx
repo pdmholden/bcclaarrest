@@ -1,17 +1,28 @@
 import * as React from 'react';
-import { StyleSheet, Text, Button, View, Alert } from 'react-native';
+import { StyleSheet, FlatList, View, Alert, Button } from 'react-native';
+import Rights from './Rights';
 
 export interface Props {
   name: string;
 }
 
 export default class SectionList extends React.Component<Props> {
-  _onPress() {
-    Alert.alert('You tapped the button!')
-  }
-
   render() {
-    return <Text>blah</Text>
+    return (
+        <View style={styles.container}>
+            <FlatList
+                data={[
+                    {key: "Breach of the Peace"},
+                    {key: "Ceasing Property"},
+                    {key: "Identifying yourself to Police"},
+                    {key: "Being detained"},
+                ]}
+                renderItem={
+                    ({item}) => <Rights name={item.key} ></Rights>
+                }
+            />
+        </View>
+    )
   }
 }
 
