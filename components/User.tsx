@@ -17,10 +17,9 @@ export default class User extends React.Component<Props> {
   render() {
     return (
       <View style = {styles.item}>
-        <Text>{this.props.image}</Text>
         <TouchableHighlight onPress={() => this.props.navigation.navigate('Sections')}>
           <Card
-            image={require('../images/protest.jpg')}
+            image={{uri: this.props.image}}
           >
             <Text style = {styles.header}>{this.props.name}</Text>
           </Card>
