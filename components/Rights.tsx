@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, Button, View, Text } from 'react-native';
+import {StyleSheet, Button, View, Text, ScrollView} from 'react-native';
 
 export interface Props {
     name: string;
@@ -9,14 +9,14 @@ export interface Props {
 export default class Rights extends React.Component<any> {
     render() {
         return (
-          <View>
+          <ScrollView>
             <Text>
               {this.props.navigation.getParam('title', 'default title')}
               </Text>
               <Text>
                 {this.props.navigation.getParam('content', 'default content')}
                 </Text>
-          </View>
+          </ScrollView>
         );
     }
 }
