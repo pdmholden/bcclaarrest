@@ -11,7 +11,7 @@ export default class Section extends React.Component<Props> {
         return (
             <Button
                 onPress={() => this.props.navigation.navigate('Rights', {
-                    title: 'Fake Title',
+                    title: this.props.name,
                     content: 'If you have not been arrested, but you are being held against your will, remember to:\n' +
                     '\n' +
                     '•    Ask why you are being held.\n' +
