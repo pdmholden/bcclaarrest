@@ -1,10 +1,12 @@
 import * as React from 'react';
 import { createStackNavigator } from 'react-navigation';
-import { StyleSheet, Button, View, Alert } from 'react-native';
+import { Button, Card, Text, Tile } from 'react-native-elements';
+import { StyleSheet, View, Alert, TouchableHighlight, Image } from 'react-native';
 
 export interface Props {
   name: string;
   navigation: any;
+  image: string;
 }
 
 export default class User extends React.Component<Props> {
@@ -14,11 +16,15 @@ export default class User extends React.Component<Props> {
 
   render() {
     return (
-      <View style={styles.item}>
-        <Button
-          onPress={() => this.props.navigation.navigate('Sections')}
-          title={this.props.name}
-        />
+      <View style = {styles.item}>
+        <Text>{this.props.image}</Text>
+        <TouchableHighlight onPress={() => this.props.navigation.navigate('Sections')}>
+          <Card
+            image={require('../images/protest.jpg')}
+          >
+            <Text style = {styles.header}>{this.props.name}</Text>
+          </Card>
+        </TouchableHighlight>
       </View>
     );
   }
@@ -27,4 +33,8 @@ export default class User extends React.Component<Props> {
 const styles = StyleSheet.create({
   item: {
   },
+  header: {
+    fontWeight: 'bold',
+    fontSize: 20,
+  }
 });
