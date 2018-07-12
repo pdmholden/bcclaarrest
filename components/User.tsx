@@ -10,10 +10,6 @@ export interface Props {
 }
 
 export default class User extends React.Component<Props> {
-  _onPress() {
-    Alert.alert('You tapped the button!')
-  }
-
   render() {
     return (
       <View style = {styles.item}>

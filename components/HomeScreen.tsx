@@ -4,6 +4,10 @@ import User from './User';
 import { Header } from 'react-native-elements';
 
 export default class HomeScreen extends React.Component<any> {
+  static navigationOptions = {
+    title: 'Home',
+  };
+
   render() {
     return (
       <View style={styles.container}>
