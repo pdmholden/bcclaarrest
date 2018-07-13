@@ -2,6 +2,8 @@ package com.bcclaarrest;
 
 import com.facebook.react.ReactActivity;
 import com.oblador.vectoricons.VectorIconsPackage;
+import org.pgsqlite.SQLitePluginPackage;
+import java.util.*;
 
 public class MainActivity extends ReactActivity {
 
