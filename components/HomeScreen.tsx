@@ -5,8 +5,20 @@ import { Header } from 'react-native-elements';
 
 export default class HomeScreen extends React.Component<any> {
   static navigationOptions = {
-    title: 'Home',
+    title: 'Know Your Rights',
   };
+
+  constructor(props){
+    super(props)
+      this.state = {
+        users: [
+            {user: "bystander", key: "I am a bystander", image: 'https://i.imgur.com/sMLTCxM.png'},
+            {user: "protest", key: "I am going to a protest", image: 'https://i.imgur.com/iioNpxc.jpg'},
+            {user: "minority", key: "I am a member of a marginalized group", image: 'https://i.imgur.com/ZcUoZiw.png'},
+            {user: "driving", key: "I am driving a car", image: 'https://i.imgur.com/aSR3lrH.png'},
+        ]
+      }
+  }
 
   render() {
     return (
@@ -17,14 +29,9 @@ export default class HomeScreen extends React.Component<any> {
 
       />
         <FlatList
-          data={[
-            {key: "I am a bystander", image: 'https://i.imgur.com/sMLTCxM.png'},
-            {key: "I am going to a protest", image: 'https://i.imgur.com/iioNpxc.jpg'},
-            {key: "I am a member of a marginalized group", image: 'https://i.imgur.com/ZcUoZiw.png'},
-            {key: "I am driving a car", image: 'https://i.imgur.com/aSR3lrH.png'},
-          ]}
+          data={this.state.users}
           renderItem={
-            ({item}) => <User name={item.key} navigation={this.props.navigation} image = {item.image} ></User>
+            ({item}) => <User name={item.key} user={item.user} navigation={this.props.navigation} image = {item.image} ></User>
           }
         />
       </View>
@@ -37,7 +44,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     justifyContent: 'center',
-    paddingTop: 50,
   },
   item: {
     padding: 10,
