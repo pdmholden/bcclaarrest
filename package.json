@@ -53,6 +53,7 @@
     "react-native": "~0.55.2",
     "react-native-elements": "^0.19.1",
     "react-native-sqlite-storage": "^3.3.6",
+    "react-native-vector-icons": "^4.6.0",
     "react-navigation": "^2.6.2",
     "rnpm": "^1.9.0",
     "xcode": "^1.0.0"
