@@ -3,6 +3,8 @@ import { StyleSheet, View, FlatList } from 'react-native';
 import User from './User';
 import { Header } from 'react-native-elements';
 
+let SQLite = require('react-native-sqlite-storage');
+
 export default class HomeScreen extends React.Component<any> {
   static navigationOptions = {
     title: 'Know Your Rights',
@@ -20,14 +22,47 @@ export default class HomeScreen extends React.Component<any> {
       }
   }
 
+  errorCB(err: any) {
+    console.log("SQL Error: " + err);
+  }
+
+  successCB() {
+    console.log("SQL executed fine");
+  }
+
+  openCB() {
+    console.log("Database OPENED");
+  }
+
   render() {
+    let db = SQLite.openDatabase({name : "arrest_pocketbook.sqlite", createFromLocation : 1}, this.openCB, this.errorCB);
+    db.transaction((tx: any) => {
+      tx.executeSql('SELECT * FROM book_content', [], (tx: any, results: any) => {
+        console.log("Query completed");
+
+        // Get rows with Web SQL Database spec compliance.
+        console.log(results);
+        alert("hi");
+        // this.setState({results: results})
+        // Alternatively, you can use the non-standard raw method.
+
+        /*
+          let rows = results.rows.raw(); // shallow copy of rows Array
+
+          rows.map(row => console.log(`Employee name: ${row.name}, Dept Name: ${row.deptName}`));
+        */
+      });
+    });
+
     return (
       <View style={styles.container}>
+
       <Header
         centerComponent={{ text: 'Please state the nature of your legal emergency', style: styles.header }}
         outerContainerStyles={{ backgroundColor: '#A40618' }}
 
       />
+        {/*{this.stylesate.results === null ? 'hi': this.state.results}*/}
         <FlatList
           data={this.state.users}
           renderItem={
