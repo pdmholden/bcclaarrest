@@ -23,11 +23,6 @@ export default class HomeScreen extends React.Component<any> {
   render() {
     return (
       <View style={styles.container}>
-      <Header
-        centerComponent={{ text: 'Please state the nature of your legal emergency', style: styles.header }}
-        outerContainerStyles={{ backgroundColor: '#A40618' }}
-
-      />
         <FlatList
           data={this.state.users}
           renderItem={
