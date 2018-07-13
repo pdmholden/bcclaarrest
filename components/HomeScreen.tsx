@@ -32,7 +32,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     justifyContent: 'center',
-    paddingTop: 50,
   },
   item: {
     padding: 10,
