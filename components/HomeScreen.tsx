@@ -35,25 +35,6 @@ export default class HomeScreen extends React.Component<any> {
   }
 
   render() {
-    let db = SQLite.openDatabase({name : "arrest_pocketbook.sqlite", createFromLocation : 1}, this.openCB, this.errorCB);
-    db.transaction((tx: any) => {
-      tx.executeSql('SELECT * FROM book_content', [], (tx: any, results: any) => {
-        console.log("Query completed");
-
-        // Get rows with Web SQL Database spec compliance.
-        console.log(results);
-        alert("hi");
-        // this.setState({results: results})
-        // Alternatively, you can use the non-standard raw method.
-
-        /*
-          let rows = results.rows.raw(); // shallow copy of rows Array
-
-          rows.map(row => console.log(`Employee name: ${row.name}, Dept Name: ${row.deptName}`));
-        */
-      });
-    });
-
     return (
       <View style={styles.container}>
 
